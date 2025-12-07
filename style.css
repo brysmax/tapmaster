@@ -1,0 +1,126 @@
+/* Variabili per gestione colori e font */
+:root {
+    --primary-color: #3f51b5; /* Blu intenso */
+    --secondary-color: #ff4081; /* Rosa acceso */
+    --bg-color: #f0f2f5; /* Sfondo molto chiaro */
+    --card-bg: #ffffff; /* Sfondo elementi */
+    --glass-rim-color: #cfd8dc; /* Bordo bicchiere */
+    --liquid-color: #4dd0e1; /* Colore liquido acquamarina */
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Stile base e reset */
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Contenitore principale */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    background-color: var(--card-bg);
+    border-radius: 20px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+    max-width: 400px;
+    width: 90%;
+    text-align: center; /* Centra anche h1 e message */
+}
+
+/* --- Area Bicchiere --- */
+.glass-container {
+    margin-bottom: 40px;
+    perspective: 1000px; 
+}
+
+.glass {
+    width: 150px;
+    height: 250px;
+    border: 8px solid var(--glass-rim-color);
+    border-bottom: none;
+    border-radius: 0 0 50px 50px / 0 0 10px 10px;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.2); 
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    transform: rotateX(5deg) rotateY(-5deg);
+}
+
+.liquid {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--liquid-color);
+    transition: height 0.3s ease-out; 
+    border-top: 5px solid #00bcd4; 
+    border-radius: 50% 50% 0 0 / 10% 10% 0 0;
+}
+
+/* --- Pannello Informazioni (Timer e Livello) --- */
+.info-panel {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 10px 0;
+}
+
+.timer, .level-indicator {
+    padding: 10px 15px;
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    min-width: 45%;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.timer {
+    color: var(--secondary-color);
+}
+.level-indicator {
+    color: var(--primary-color);
+}
+
+/* --- Bottone Tap --- */
+.tap-button {
+    padding: 20px 40px;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--card-bg);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 50px; 
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease-in-out;
+    outline: none;
+}
+
+.tap-button:hover {
+    background-color: #5c6bc0; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.tap-button:active {
+    transform: scale(0.95); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Stile per i messaggi di feedback */
+#message {
+    margin-top: 20px; 
+    height: 1.5em; /* Assicura che l'area non si sposti quando compare il testo */
+    font-weight: bold; 
+    font-size: 1.1em; 
+    color: var(--secondary-color);
+}
